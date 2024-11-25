@@ -32,6 +32,7 @@ ifconfig
 ```
 <img src="https://github.com/letmehear159/IS-Lab-Crypto/blob/f5ab19341d48bbc2e3ee6e20ef3942060015507e/images/image1.png"/>
 start listening on port 3034 and receiving plain_text.txt
+<br>
 ```sh
 nc -l -p 3034 > files.txt
 ```
@@ -41,7 +42,16 @@ nc -l -p 3034 > fileMac.hmac
 ```
 <img src="https://github.com/letmehear159/IS-Lab-Crypto/blob/b12130ae8cf5e9d51e70e7db03426f4e7a5c0198/images/image%202.png"/>
 On the first virtual computer: <br>
-Start sending two files via port and ip address.
+Start sending two files via port and ip address 
+<br>
+```sh
+cat plaint_text.txt | nc -w 3 172.17.0.3 3034
+```
+<br>
+```sh
+cat fileMac.hmac | nc -w 3 172.17.0.3 3034
+```
+<img src="https://github.com/letmehear159/IS-Lab-Crypto/blob/2ed7bba6613bf06ce59f3d131ad356a9d32c4793/images/image%203.png"/>
 # Task 2: Transfering encrypted file and decrypt it with hybrid encryption. 
 **Question 1**:
 Conduct transfering a file (deliberately choosen by you) between 2 computers. 
