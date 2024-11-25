@@ -78,7 +78,21 @@ The file is symmetrically encrypted/decrypted by exchanging secret key which is 
 All steps are made manually with openssl at the terminal of each computer.
 
 **Answer 1**:
+## Step 1: Prepare RSA keys.
 
+In the receiver computer, we using openSSL to generate public key and private key
+
+```
+openssl genrsa -out private.pem 2048
+openssl rsa -in private.pem -pubout -out public.pem
+```
+
+Checking the private and public key: 
+<img src="https://github.com/letmehear159/IS-Lab-Crypto/blob/d4dafb316b0d2b8fbeb6e3b14750f21597137f5a/images/image%206.png"/>
+Encrypt the Symmetric Key with the Receiver's Public Key
+```
+openssl rsautl -encrypt -inkey receiver_public.pem -pubin -in secret.key -out secret.key.enc
+```
 
 # Task 3: Firewall configuration
 **Question 1**:
