@@ -89,6 +89,7 @@ openssl rsa -in private.pem -pubout -out public.pem
 
 Checking the private and public key: 
 <img src="https://github.com/letmehear159/IS-Lab-Crypto/blob/d4dafb316b0d2b8fbeb6e3b14750f21597137f5a/images/image%206.png"/>
+<br>
 Encrypt the Symmetric Key with the Receiver's Public Key
 ```
 openssl rsautl -encrypt -inkey receiver_public.pem -pubin -in secret.key -out secret.key.enc
