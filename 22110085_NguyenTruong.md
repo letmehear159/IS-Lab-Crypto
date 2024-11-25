@@ -84,6 +84,8 @@ Creating symmetric key
 ```
 openssl rand -base64 32 > secret.key
 ```
+checking the private key 
+<img src="https://github.com/letmehear159/IS-Lab-Crypto/blob/67aa58233a5aaaea61bf0a6131b496f4435fa942/images/image%208.png"/>
 we using openSSL to generate public key and private key
 ```
 openssl genrsa -out private.pem 2048
