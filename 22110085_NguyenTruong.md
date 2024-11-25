@@ -7,14 +7,15 @@ then veryfing at receiving side.
 
 **Answer 1**:
 <br>
-Install requirement for transfering files
-<br>
+## Step 1: Install requirement for transfering files
+
 apt update
 <br>
 apt install openssl: For ensure authenticity and integrity
 <br>
 apt install netcat-traditional: For transfering file
 <br>
+## Step 2: Creating files 
 For the first virtual computer: <br> 
 Create plain_text file for transmitting: 
 ```sh
@@ -24,6 +25,7 @@ Create a hmac file name fileMac.hmac with secret key : 25892589
 ```sh
 openssl dgst -sha256 -mac HMAC -macopt key:25892589 -out fileMac.hmac plain_text.txt
 ```
+## Step 3: Transmitting files 
 After creating two neccessary files, i started to transmitting to another computer:
 For the second virtual computer: <br>
 Checking the ip of this computer: 
@@ -57,6 +59,9 @@ cat fileMac.hmac | nc -w 3 172.17.0.3 3034
 On the second virtual computer we see that 2 two files after receiving:
 Checking the contain of files.txt from plain_text.txt 
 <img src="https://github.com/letmehear159/IS-Lab-Crypto/blob/adf6377d98eb12af7bdd6bbf67fa357b7fdf305d/images/image%204.png"/>
+
+## Step 4: Checking the hmac Code
+
 Checking the hmac code value from hmac file and one from using openSSh with key 25892589 and content in files.txt<br>
 I used diff for comparing the string value of received fileMac.hmac and one from using openSSh with key 25892589 and content in files.txt
 
