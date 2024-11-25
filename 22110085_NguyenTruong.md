@@ -27,10 +27,21 @@ openssl dgst -sha256 -mac HMAC -macopt key:25892589 -out fileMac.hmac plain_text
 After creating two neccessary files, i started to transmitting to another computer:
 For the second virtual computer: <br>
 Checking the ip of this computer: 
-start listening on port 3034
-
-
- 
+```sh
+ifconfig
+```
+<img src="https://github.com/letmehear159/IS-Lab-Crypto/blob/f5ab19341d48bbc2e3ee6e20ef3942060015507e/images/image1.png"/>
+start listening on port 3034 and receiving plain_text.txt
+```sh
+nc -l -p 3034 > files.txt
+```
+start listening on port 3034 and receiving fileMac.hmac 
+```sh
+nc -l -p 3034 > fileMac.hmac
+```
+<img src="https://github.com/letmehear159/IS-Lab-Crypto/blob/b12130ae8cf5e9d51e70e7db03426f4e7a5c0198/images/image%202.png"/>
+On the first virtual computer: <br>
+Start sending two files via port and ip address.
 # Task 2: Transfering encrypted file and decrypt it with hybrid encryption. 
 **Question 1**:
 Conduct transfering a file (deliberately choosen by you) between 2 computers. 
