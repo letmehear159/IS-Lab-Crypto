@@ -79,9 +79,12 @@ All steps are made manually with openssl at the terminal of each computer.
 
 **Answer 1**:
 ## Step 1: Prepare RSA keys.
-
-In the receiver computer, we using openSSL to generate public key and private key
-
+In the sender computer:
+Creating symmetric key
+```
+openssl rand -base64 32 > secret.key
+```
+we using openSSL to generate public key and private key
 ```
 openssl genrsa -out private.pem 2048
 openssl rsa -in private.pem -pubout -out public.pem
